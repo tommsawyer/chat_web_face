@@ -2,16 +2,22 @@
 var ChatTabs, ChatUsers, ChatWindow, MainChat;
 
 ChatUsers = React.createClass({
-  componentDidMount: function() {
-    return API.addListener('users', (function(_this) {
+  componentWillMount: function() {
+    if (this.props.room != null) {
+      return API.getUsers(this.props.room);
+    }
+  },
+  getInitialState: function() {
+    API.addListener('users', (function(_this) {
       return function(data) {
         return _this.setState({
           users: data.users
         });
       };
     })(this));
-  },
-  getInitialState: function() {
+    API.addListener('join', function(data) {
+      return API.getUsers(data.id);
+    });
     return {
       users: []
     };
@@ -149,6 +155,8 @@ MainChat = React.createClass({
     }), React.createElement(ChatWindow, {
       "messages": this.state.messages[this.state.active - 1],
       "room": (API.rooms[this.state.active - 1] != null ? API.rooms[this.state.active - 1].id : void 0)
-    }), React.createElement(ChatUsers, null)));
+    }), React.createElement(ChatUsers, {
+      "room": (API.rooms[this.state.active - 1] != null ? API.rooms[this.state.active - 1].id : void 0)
+    })));
   }
 });

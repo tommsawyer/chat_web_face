@@ -30,6 +30,12 @@ this.FacadeAPI = (function() {
         type: 'join',
         callbacks: [this.onJoin]
       }, {
+        type: 'user_leave',
+        callbacks: []
+      }, {
+        type: 'user_join',
+        callbacks: []
+      }, {
         type: 'error',
         callbacks: []
       }

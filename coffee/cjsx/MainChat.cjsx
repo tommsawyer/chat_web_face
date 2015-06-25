@@ -1,12 +1,18 @@
 ChatUsers = React.createClass
-	componentDidMount: ->
+	componentWillMount: ->
+		if @props.room?
+			API.getUsers(@props.room)
+
+	getInitialState: ->
 		API.addListener('users', (data) =>
 				@setState({users: data.users})
 			)
+		API.addListener('join', (data) ->
+				API.getUsers(data.id)
+			)
 
-	getInitialState: ->
 		{users: []}
-	
+
 	render: ->
 		<div className='users span1'>
 			<ul className='nav nav-pills nav-stacked'>
@@ -89,6 +95,8 @@ MainChat = React.createClass
 				<ChatWindow messages={@state.messages[@state.active - 1]} room={if API.rooms[@state.active-1]?
 									API.rooms[@state.active-1].id} 
 				/>
-				<ChatUsers />
+				<ChatUsers room={if API.rooms[@state.active-1]?
+									API.rooms[@state.active-1].id}
+				/>
 			</div>
 		</div>

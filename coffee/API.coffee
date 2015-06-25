@@ -35,6 +35,16 @@ class @FacadeAPI
 			]
 		},
 		{
+			type: 'user_leave',
+			callbacks: [
+			]
+		},
+		{
+			type: 'user_join',
+			callbacks: [
+			]
+		},
+		{
 			type: 'error',
 			callbacks: [
 			]

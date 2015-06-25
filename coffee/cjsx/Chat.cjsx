@@ -1,7 +1,7 @@
 API = new FacadeAPI 'ws://localhost:8090', ->
 	API.addListener 'error', (data) ->
 		alert(data.error_descr)
-		
+
 	API.addListener 'join', (data) ->
 		rendered.setActive(1)
 
