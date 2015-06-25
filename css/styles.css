@@ -1,0 +1,78 @@
+body{
+    background-image: url(background.png);
+}
+
+.chat{
+	height: 500px;
+	border-right: 1px solid #aaa;
+}
+
+.users{
+	height: 555px;
+}
+
+.message{
+	color: #aaa;
+}
+
+.user-info{
+	color: #049cdb;
+}
+
+.nav-stacked a{
+	color: #049cdb;
+}
+
+.chat textarea{
+	position: absolute;
+	bottom: 0px;
+}
+
+.close{
+	margin-left: 5px;
+}
+
+th{
+    font-weight: bold;
+}
+
+.addRoom:before{
+    border-bottom: 15px solid rgba(0,0,0,0.8);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    content: "";
+    height: 0;
+    left: 20%;
+    position: absolute;
+    top: -14px;
+    width: 0;
+}
+
+.addRoom{
+    background-color: rgba(0,0,0,.8);
+    border-radius: 10px;
+    display: none;
+    font-weight: bold;
+    margin-top: 40px;
+    padding: 10px;
+    position: absolute;
+    transition: .7s;
+}
+
+#logout{
+    border-bottom: 1px dashed #aaa;
+    color: #aaa;
+}
+
+.ordersTable{
+    width: 100%;
+
+}
+
+.connection{
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    top: 45%;
+}
