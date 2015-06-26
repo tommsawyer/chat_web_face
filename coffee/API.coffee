@@ -84,9 +84,9 @@ class @FacadeAPI
 		@sendCommand 'auth', {login: login, password: password}
 
 	logout: () ->
-			@token = null
-			@nickname = null
-			@isAuthorize = false
+		@token = null
+		@nickname = null
+		@isAuthorize = false
 
 # Rooms
 
@@ -159,6 +159,7 @@ class @FacadeAPI
 			if route.type == type
 				route.callbacks.push callback
 		return
+
 
 #
 # Private methods
